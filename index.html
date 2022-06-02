@@ -9,24 +9,33 @@ function computerPlay(){
 
     let handChoice = ["Rock", "Paper", "Scissors"]
     let rando = handChoice[Math.floor(Math.random()*handChoice.length)];
-
     return rando;
 }
 
 console.log(computerPlay());
     
-   
-
-
-
-
-
-
 
 // next step 
 // write function that plays single round of RPS.
     // two parameters
     //     playerSelection - make it case insensitive
+
+
+function playerSelection(){
+    let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.")
+    console.log(playerChoice);
+    let playerToLower = playerChoice.toLowerCase();
+    console.log(playerToLower);
+    let firstChar = playerToLower.charAt(0);
+    console.log(firstChar);
+    let firstCharCap = firstChar.toUpperCase();
+    console.log(firstChar);
+    let fPlayerChoice = firstCharCap + playerToLower.slice(1);
+    console.log(fPlayerChoice);
+    return fPlayerChoice;
+}
+
+console.log(playerSelection());
     //     computerSelection
 
     //     return string that declares winner of the round 
