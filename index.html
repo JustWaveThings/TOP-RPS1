@@ -5,6 +5,24 @@
 // Need a function called 'computerPlay' that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 // test this function  works before moving on
 
+function computerPlay(){
+
+    let handChoice = ["Rock", "Paper", "Scissors"]
+    let rando = handChoice[Math.floor(Math.random()*handChoice.length)];
+
+    return rando;
+}
+
+console.log(computerPlay());
+    
+   
+
+
+
+
+
+
+
 // next step 
 // write function that plays single round of RPS.
     // two parameters
