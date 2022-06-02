@@ -22,26 +22,20 @@ function computerPlay(){
 
 
 function playerSelection(){
-    let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.")
-    // console.log(playerChoice);
+    let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.");
     let playerToLower = playerChoice.toLowerCase();
-    // console.log(playerToLower);
     let firstChar = playerToLower.charAt(0);
-    // console.log(firstChar);
     let firstCharCap = firstChar.toUpperCase();
-    // console.log(firstChar);
     let fPlayerChoice = firstCharCap + playerToLower.slice(1);
-    // console.log(fPlayerChoice);
     return fPlayerChoice;
 }
 
-console.log(playerSelection());
+
 
 
     //     computerSelection
 
-computerPlay()
-console.log(computerPlay());
+
 
     //     return string that declares winner of the round 
 // I need to psuedocode this first to get the logic right.
@@ -64,53 +58,68 @@ console.log(computerPlay());
 
 // if not equal then nested switch statements one for players choice ? 
 
-// function determineTie(){
+function determineTie(){
+ if (computerPlay === playerSelection){
+    alert(`You both threw down ${computerPlay} it's a Tie. Go again.`);
+    console.log("they tied") 
+ } else {
+    determineWin();
+    alert("not a tie, let's see who won!")
+    console.log("they should have moved into the determineWin() function") 
+ }
+}
 
-// }
+
 
 function determineWin(){
     // rock
     if (playerSelection = 'Rock'){
         if (computerPlay === 'Scissors') {
             alert("Rock Crushes Scissors, You Win!");
-            console.log("Player Wins.")
-            let winner = "Player"
+            console.log("Player Wins.");
+            let winner = "Player";
         } else (computerPlay === 'Paper'); {
             alert("Paper Covers Rock, You Lose!");
             console.log("Player Loses.");
-            let winner = "Computer"
+            let winner = "Computer";
         }
     // scissors    
     }else if (playerSelection = 'Scissors') {
         if (computerPlay === 'Paper') {
             alert("Scissors Shreds Paper, You Win!");
-            console.log("Player Wins.")
-            let winner = "Player"
-        } else (computerPlay === 'Rock'); {
+            console.log("Player Wins.");
+            let winner = "Player";
+        } else (computerPlay  === 'Rock'); {
             alert("Rock Crushes Scissors, You Lose!");
             console.log("Player Loses.");
-            let winner = "Computer"
+            let winner = "Computer";
         }
     // paper
     }else if (playerSelection = 'Paper'){
         if (computerPlay === 'Rock') {
             alert("Paper Covers Rock, You Win!");
-            console.log("Player Wins.")
-            let winner = "Player"
+            console.log("Player Wins.");
+            let winner = "Player";
         } else (computerPlay === 'Paper'); {
             alert("Scissors Shreds Paper, You Lose!");
             console.log("Player Loses.");
-            let winner = "Computer"
+            let winner = "Computer";
+        }
     // something else
-    } else {
-        alert("Round Forfeit. Make sure you spell your word correctly next time.")
-        console.log("Player did not enter a valid word.")
-        let winner = "Computer"
+    }else {
+        alert("Round Forfeit. Make sure you spell your word correctly next time.");
+        console.log("Player did not enter a valid word.");
+        let winner = "Computer";
     }
+    return alert
 }
 
+console.log(`${playerSelection()} is what the player chose`);
+console.log(`${computerPlay()} is what the computer chose`);
+console.log(determineTie());
+console.log(determineWin());
 
+</script>
 
 // stopping here and completing these steps before moving forward.
 
-</script>
