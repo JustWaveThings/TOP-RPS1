@@ -12,7 +12,7 @@ function computerPlay(){
     return rando;
 }
 
-console.log(computerPlay());
+// console.log(computerPlay());
     
 
 // next step 
@@ -23,20 +23,25 @@ console.log(computerPlay());
 
 function playerSelection(){
     let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.")
-    console.log(playerChoice);
+    // console.log(playerChoice);
     let playerToLower = playerChoice.toLowerCase();
-    console.log(playerToLower);
+    // console.log(playerToLower);
     let firstChar = playerToLower.charAt(0);
-    console.log(firstChar);
+    // console.log(firstChar);
     let firstCharCap = firstChar.toUpperCase();
-    console.log(firstChar);
+    // console.log(firstChar);
     let fPlayerChoice = firstCharCap + playerToLower.slice(1);
-    console.log(fPlayerChoice);
+    // console.log(fPlayerChoice);
     return fPlayerChoice;
 }
 
 console.log(playerSelection());
+
+
     //     computerSelection
+
+computerPlay()
+console.log(computerPlay());
 
     //     return string that declares winner of the round 
 
