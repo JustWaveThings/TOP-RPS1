@@ -8,7 +8,7 @@
 function computerPlay(){
 
     let handChoice = ["Rock", "Paper", "Scissors"] // array of possible choices
-    let rando = handChoice[Math.floor(Math.random()*handChoice.length)];
+    let rando = handChoice[Math.floor(Math.random()*handChoice.length)]; 
     return rando.toString();
 }
 
@@ -30,14 +30,8 @@ function playerSelection(){
     return fPlayerChoice.toString();
 }
 
+//     return string that declares winner of the round 
 
-
-
-    //     computerSelection
-
-
-
-    //     return string that declares winner of the round 
 // I need to psuedocode this first to get the logic right.
 
 // player can have R P or S.
@@ -122,17 +116,30 @@ function determineWin(){
    
 }
 
+//  determineTie();
+
+ // The above works and now moving on for the game to have 5 rounds and score kept, and winner declared... 
+
+//// ****** things needed
+// -function called game() 
+// -for loop to iterate 5 games 
+// -2 counters that increment based on outcome of each round in the game
+//
+
+function game(){
+    function playRound(computerPlay2, playerSelection2){
+    return playRound;
+    }
+determineTie();    
+}
+
+game();
 
 
- console.log(`${playerSelection2} is what the player chose`);
- console.log(`${computerPlay2} is what the computer chose`);
-
- determineTie();
-// stopping here and completing these steps before moving forward.
 
 </script>
 
-// Reload page to play again!
+
 
 
 
