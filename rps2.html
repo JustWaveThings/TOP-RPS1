@@ -1,0 +1,116 @@
+<script>
+
+let winner = "";
+let playerS = "";
+let compS = "";
+
+    function computerPlay() {
+        let handChoice = ["Rock", "Paper", "Scissors"] // array of possible choices
+        let rando = handChoice[Math.floor(Math.random() * handChoice.length)];
+        let compS = rando.toString();
+        return rando.toString();
+    }
+
+    function playerSelection() {
+        let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.");
+        let playerToLower = playerChoice.toLowerCase();
+        let firstChar = playerToLower.charAt(0);
+        let firstCharCap = firstChar.toUpperCase();
+        let fPlayerChoice = firstCharCap + playerToLower.slice(1);
+        let playerS = fPlayerChoice.toString();
+        return fPlayerChoice.toString();
+    }
+   
+    function determineTie() {
+        if (computerPlay() === playerSelection()) {
+            alert(`You both threw down the same thing. It's a Tie. Go again.`);
+            console.log("they tied")
+        } else {
+            displayDecisions();
+            alert("Not a tie, let's see who won!")
+            console.log("Not a tie. Let's see who won.")
+            determineWin();
+        }
+        return alert;
+    }
+
+    
+
+    function displayDecisions() {
+        alert`You chose ${playerS}, and the computer chose ${compS}.`
+    }
+
+    function determineWin() {
+        // rock
+        if (playerSelection === 'Rock') {
+            if (computerPlay === 'Scissors') {
+                alert("Rock Crushes Scissors, You Win!");
+                console.log("Player Wins");
+
+            } else {
+                alert("Paper Covers Rock, You Lose!");
+                console.log("Player Loses.");
+
+            }
+            // scissors    
+        } else if (playerSelection === 'Scissors') {
+            if (computerPlay === 'Paper') {
+                alert("Scissors Shreds Paper, You Win!");
+                console.log("Player Wins.");
+
+            } else {
+                alert("Rock Crushes Scissors, You Lose!");
+                console.log("Player Loses.");
+
+            }
+            // paper
+        } else if (playerSelection === 'Paper') {
+            if (computerPlay === 'Rock') {
+                alert("Paper Covers Rock, You Win!");
+                console.log("Player Wins.");
+
+            } else {
+                alert("Scissors Shreds Paper, You Lose!");
+                console.log("Player Loses.");
+
+            }
+            // something else
+        } else {
+            alert("Round Forfeit. Make sure you spell your word correctly next time.");
+            console.log("Player did not enter a valid word.");
+
+        }
+
+
+    }
+
+    //  determineTie();
+
+    // The above works and now moving on for the game to have 5 rounds and score kept, and winner declared... 
+
+    //// ****** things needed ******
+    // -function called game() 
+    // -for loop to iterate 5 games 
+    // -2 counters that increment based on outcome of each round in the game
+    //
+
+    // what functions currently are involved
+    // - determineTie()
+    // - computerPlay()
+    // - displayDecisions();
+    // - determineWin();
+    // - playerSelection();
+
+
+    function playRound(playerSelection, computerPlay) {
+        determineTie();
+    }
+
+    function game() {
+        playRound();
+    }
+
+    game();
+
+</script>
+reload page to try again.
