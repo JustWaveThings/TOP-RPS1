@@ -1,0 +1,102 @@
+// starting from scratch on rps project 
+
+
+<script>
+
+// setting the function calls to global variables as it seems to be the only way to get this done...   
+
+let playerC = playerChoice();
+let compC = compChoice();
+
+
+// functions
+
+// compChoice uses built in JS math functions to randomly pick from the provided array and return value
+
+function compChoice(){
+    let handChoice = ["Rock", "Paper", "Scissors"] // array of possible choices
+    let rando = handChoice[Math.floor(Math.random()*handChoice.length)]; // 
+    return rando.toString();
+}
+// playerChoice prompts for player choice and formats input to capitalize first char and lowercase the rest and returns value
+
+function playerChoice(){
+    let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.");
+    let playerToLower = playerChoice.toLowerCase();
+    let firstChar = playerToLower.charAt(0);
+    let firstCharCap = firstChar.toUpperCase();
+    let fPlayerChoice = firstCharCap + playerToLower.slice(1);
+    return fPlayerChoice.toString();
+}
+
+// tie evaluates if there is a tie, returns value of 'tied' or 'not tied' 
+
+function tie() {
+    if ( playerC === compC ) {
+        let game = 'tied'
+        return game;
+    } else {
+        //alert("Not a tie, let's see who won!")
+        console.log("Not a tie. Let's see who won.");
+        let game = 'not tied'
+        return game;
+    }
+    return game;
+}
+
+// evalWin evaluates playerC and compC to determine a winner. Defaults to invalid input if playerC is not one of the accepted values.
+
+function evalWin() {
+    if (tie() === 'tied') {
+        //alert(`You both threw down ${compC} it's a Tie.`);
+        console.log(`You both threw down ${compC} it's a Tie.`)
+    } else {
+        // rock
+        if (playerC === 'Rock') {
+            if (compC === 'Scissors') {
+                //alert("Rock Crushes Scissors, You Win!");
+                console.log("Rock Crushes Scissor. Player Wins");
+
+            } else {
+                //alert("Paper Covers Rock, You Lose!");
+                console.log("Paper Covers Rock - Player Loses.");
+
+            }
+            // scissors    
+        } else if (playerC === 'Scissors') {
+            if (compC === 'Paper') {
+                //alert("Scissors Shreds Paper, You Win!");
+                console.log("Scissors Shreds Paper - Player Wins.");
+
+            } else {
+                //alert("Rock Crushes Scissors, You Lose!");
+                console.log("Player Loses.");
+
+            }
+            // paper
+        } else if (playerC === 'Paper') {
+            if (compC === 'Rock') {
+                //alert("Paper Covers Rock, You Win!");
+                console.log("Paper Covers Rock - Player Wins.");
+
+            } else {
+                //alert("Scissors Shreds Paper, You Lose!");
+                console.log("Scissors Shreds Paper - Player Loses.");
+
+            }
+            // anything else
+        } else {
+            //alert("Round Forfeit. Make sure you spell your word correctly next time.");
+            console.log("Player Loses. Player did not enter a valid word.");
+        }
+    }
+}
+
+function playRound(playerC, compC){
+    tie();
+    evalWin();
+}
+
+playRound();
+
+</script>
