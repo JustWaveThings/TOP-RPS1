@@ -58,22 +58,38 @@ let playerScore = 0;
 // computer choice function 
 
 function compChoice() {
-    let handChoice = ["rock", "paper", "scissors"] // array of possible choices
-    let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; // 
+    let handChoice = ["rock", "paper", "scissors"] 
+    let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; 
     return console.log(rando.toString());
 }
 
 function playerChoice() {
     console.log(prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
-    return console.log
+    return console.log;
+}
 
+// determine winner or tie function / with point added to winner function 
+
+function playRound(playerChoice, compChoice){
+    if (playerChoice === 'rock') {
+        if (compChoice === 'scissors') {
+            playerScore +=1;
+            return console.log(`You won the round. The score is now ${ playerScore } for you and ${ compScore  } for the computer.`)
+        } else {
+            console.log("TESTING - just not rock /scissor matchup");
+            return console.log;
+        }
+    }else {
+        console.log('Somehow playerChoice "rock" is not equal to "rock" in line 74 ')
+        return console.log
+    }
 }
 
 
 
 playerChoice();
 compChoice();
-
+playRound();
 
 
 </script>
