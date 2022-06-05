@@ -1,9 +1,6 @@
 <script>
     
-// goal is to first create a rock, paper, scissors game that one can play in the console against the 'computer'
 
-// Need a function called 'computerPlay' that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
-// test this function  works before moving on
 
 function computerPlay(){
 
@@ -11,14 +8,6 @@ function computerPlay(){
     let rando = handChoice[Math.floor(Math.random()*handChoice.length)]; 
     return rando.toString();
 }
-
-// console.log(computerPlay()); // this works, just commented out so it doesn't clog up the console.
-    
-
-// next step 
-// write function that plays single round of RPS.
-    // two parameters
-    //     playerSelection - make it case insensitive
 
 
 function playerSelection(){
@@ -30,27 +19,6 @@ function playerSelection(){
     return fPlayerChoice.toString();
 }
 
-//     return string that declares winner of the round 
-
-// I need to psuedocode this first to get the logic right.
-
-// player can have R P or S.
-// computer can have R P or S.
-
-// win conditions
-// R beats S
-// P beats R
-// S beats P
-
-// tie conditions
-// R=R, P=P, S=S
-
-// I could use a switch statement for each player choice and then the 3 options for the computer. This is inelegant... thinking some more...
-//  We first need to check for a tie before evaluating a winner. 
-
-// psuedocode   -  if computerPlay === playerSelection, then prompt "Tie. Go again."
-
-// if not equal then nested switch statements one for players choice ? 
 
 let computerPlay2 = computerPlay();
 let playerSelection2 = playerSelection();
@@ -115,27 +83,6 @@ function determineWin(){
        
    
 }
-
-//  determineTie();
-
- // The above works and now moving on for the game to have 5 rounds and score kept, and winner declared... 
-
-//// ****** things needed ******
-// -function called game() 
-// -for loop to iterate 5 games 
-// -2 counters that increment based on outcome of each round in the game
-//
-
-function game(){
-    function playRound(computerPlay2, playerSelection2){
-    return playRound;
-    }
-determineTie();    
-}
-
-game();
-
-
 
 </script>
 
