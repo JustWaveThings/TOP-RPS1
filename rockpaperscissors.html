@@ -58,12 +58,12 @@ let playerScore = 0;
 // computer choice function 
 
 function compChoice() {
-    let handChoice = ["Rock", "Paper", "Scissors"] // array of possible choices
+    let handChoice = ["rock", "paper", "scissors"] // array of possible choices
     let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; // 
     return rando.toString();}
 
 function playerChoice() {
-    console.log(prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'Rock', 'Paper' or 'Scissors:`).toLowerCase);
+    console.log(prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper' or 'scissors:`).toLowerCase);
     return prompt;
 }
 
