@@ -70,7 +70,6 @@ function compChoice() {
 function playerChoice() {
     let playerC = (prompt(`Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
     player = playerC;
-    console.log(`At the beginning of round ${round}, the score is currently ${playerScore} for you, and ${compScore } for the computer.`)
     return playerC;
 }
 
@@ -128,16 +127,26 @@ function points(){
     }
 }
 
+function roundScore(){
+    console.log(`At the end of round ${round}, the score is ${playerScore} for you, and ${compScore} for the computer.`)
+}
+
+function checkWin(){
+        } else if (compScore > 4) {
+            console.log('Computer Won. Reload page to try again.');
+        } else if (playerScore > 4) {
+            console.log('You beat the computer. Way to go! Reload page to try your luck again.');
+        } else {
+            console.log('The game is over. Reload page to take another crack.')
+        }
+}
+
 function endGame(){
    
     if (compScore <= 4 || playerScore <= 4) {
         playRound();
-    } else if ( compScore > 4) {
-        console.log('Computer Won. Reload page to try again.');
-    } else if (playerScore > 4) {
-        console.log('You beat the computer. Way to go! Reload page to try your luck again.');
     } else {
-        console.log('The game is over. Reload page to take another crack.')
+        checkWin();
     }
 }
 
