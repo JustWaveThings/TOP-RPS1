@@ -110,7 +110,7 @@ function playRound(a, b){
         }
     }
     
-}
+} 
 
 function points(){
     if (winner === "ptp"){
@@ -131,15 +131,7 @@ function roundScore(){
     console.log(`At the end of round ${round}, the score is ${playerScore} for you, and ${compScore} for the computer.`)
 }
 
-function checkWin(){
-        if (compScore > 4) {
-            console.log('Computer Won. Reload page to try again.');
-            return
-        } else if (playerScore > 4) {
-            console.log('You beat the computer. Way to go! Reload page to try your luck again.');
-            return
-        } 
-}
+
 
 function endGame(){
    
@@ -151,4 +143,12 @@ function endGame(){
 }
 
 playRound();
+
+    function checkWin() {
+        if (compScore > 4) {
+            console.log('Computer Won. Reload page to try again.');
+        } else if (playerScore > 4) {
+            console.log('You beat the computer. Way to go! Reload page to try your luck again.');
+        }
+    }
 </script>
