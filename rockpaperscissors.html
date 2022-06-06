@@ -143,7 +143,7 @@ function checkWin(){
 
 function endGame(){
    
-    if (compScore <= 4 || playerScore <= 4) {
+    if (compScore <= 4 &&  playerScore <= 4) {
         playRound();
     } else {
         checkWin();
