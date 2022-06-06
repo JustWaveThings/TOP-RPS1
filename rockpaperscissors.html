@@ -57,7 +57,7 @@ let playerScore = 0;
 let comp;
 let player;
 let winner;
-
+let round = 0;
 
 // computer choice function 
 
@@ -70,13 +70,14 @@ function compChoice() {
 function playerChoice() {
     let playerC = (prompt(`Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
     player = playerC;
-    console.log(`at the beginning of the round, the score is currently ${playerScore} for you, and ${compScore } for the computer.`)
+    console.log(`At the beginning of round ${round}, the score is currently ${playerScore} for you, and ${compScore } for the computer.`)
     return playerC;
 }
 
 // determine winner or tie function / with point added to winner function 
 
 function playRound(a, b){
+    ++ round;
     playerChoice();
     compChoice();
     if (comp === player) {
@@ -128,17 +129,14 @@ function points(){
 }
 
 function endGame(){
-    if (compScore === 5 || playerScore === 5){
-        console.log('The game as been completed. let\'s see who won!');
-        if (compScore === 5){
-            console.log('The computer has won. Reload page to try your luck again.');
-        }else {
-            console.log('You beat the computer. Way to go! Reload page to try your luck again.');
-        }    
-    } else if (compScore <= 5 || playerScore <= 5) {
-            playRound();
+    if (compScore <= 4 || playerScore <= 4) {
+        playRound();
+    } else if ( compScore === 5) {
+        console.log('Computer Won. Reload page to try again.');
+    } else if (playerScore === 5) {
+        console.log('You beat the computer. Way to go! Reload page to try your luck again.');
     } else {
-        console.log('The game is over, reload page to take another crack at the game.');
+        console.log('The game is over. Reload page to take another crack.')
     }
 }
 
