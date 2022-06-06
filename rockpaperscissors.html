@@ -1,5 +1,5 @@
 
-
+<script>
 /*    back to basics.... pseudocode and break it down into discrete parts
 
 objectives
@@ -49,7 +49,7 @@ objectives
 
             
 */
-<script>
+
 
 // initalized score counters
 let compScore = 0;
@@ -60,9 +60,11 @@ let playerScore = 0;
 
 function compChoice() {
     let handChoice = ["rock", "paper", "scissors"] 
+    console.log(`local scope handChoice = ${handChoice}`)
     let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; 
+    console.log(`local scope rando= ${rando}`)
     return rando;
-
+}
 function playerChoice() {
     let playerC = (prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
     return playerC;
@@ -84,7 +86,7 @@ function playRound(playerChoice, compChoice){
         return console.log
     }
 }
-}
+
 
 
 playerChoice();
