@@ -5,11 +5,11 @@ let a = "";
 function test1(){
     let x = 12;
     a = x;
-    console.log(a)
-    return a;
+    console.log(`local scope a = ${a}`)
+    return x;
 }
 
 test1();
-
+console.log(`global scope a = ${a}`)
 
 </script>
