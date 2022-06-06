@@ -50,7 +50,7 @@ objectives
             
 */
 <script>
-    
+
 // initalized score counters
 let compScore = 0;
 let playerScore = 0;
@@ -61,12 +61,11 @@ let playerScore = 0;
 function compChoice() {
     let handChoice = ["rock", "paper", "scissors"] 
     let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; 
-    return console.log(rando.toString());
-}
+    return rando;
 
 function playerChoice() {
-    console.log(prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
-    return console.log;
+    let playerC = (prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
+    return playerC;
 }
 
 // determine winner or tie function / with point added to winner function 
