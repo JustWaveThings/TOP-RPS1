@@ -51,47 +51,96 @@ objectives
 */
 
 
-// initalized score counters
+// initalized global variables 
 let compScore = 0;
 let playerScore = 0;
+let comp;
+let player;
+let winner;
 
 
 // computer choice function 
 
 function compChoice() {
     let handChoice = ["rock", "paper", "scissors"] 
-    console.log(`local scope handChoice = ${handChoice}`)
     let rando = handChoice[Math.floor(Math.random() * handChoice.length)]; 
-    console.log(`local scope rando= ${rando}`)
+    comp = rando;
     return rando;
 }
 function playerChoice() {
-    let playerC = (prompt(`the score is currently ${ playerScore } for you, and ${ compScore } for the computer. Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
+    let playerC = (prompt(`Please select 'rock', 'paper', or 'scissors:`).toLowerCase());
+    player = playerC;
+    console.log(`at the beginning of the round, the score is currently ${playerScore} for you, and ${compScore } for the computer.`)
     return playerC;
 }
 
 // determine winner or tie function / with point added to winner function 
 
-function playRound(playerChoice, compChoice){
-    if (playerChoice === 'rock') {
-        if (compChoice === 'scissors') {
-            playerScore +=1;
-            return console.log(`You won the round. The score is now ${ playerScore } for you and ${ compScore  } for the computer.`)
-        } else {
-            console.log("TESTING - just not rock /scissor matchup");
-            return console.log;
+function playRound(a, b){
+    playerChoice();
+    compChoice();
+    if (comp === player) {
+        winner = "tie"; // this doesn't really do anything. I just want it there.
+        points();
+    }
+    if (player === 'rock') {
+        if (comp === 'scissors') {
+             winner = "ptp";
+            points();
+            
+        } else if (comp === "paper"); {
+            winner = "ptc";
+            points();
         }
+    }else if (player === 'scissors'){
+        if (comp === 'paper') {
+            winner = "ptp";
+            points();
+        } else if (comp === "rock"); {
+            winner = "ptc";
+            points();
+    }
+    } else if (player === 'paper') {
+        if (comp === 'rock') {
+            winner = "ptp";
+            points();
+        } else if (comp === "scissors"); {
+            winner = "ptc";
+            points();
+        }
+    }
+    
+}
+
+function points(){
+    if (winner === "ptp"){
+        ++ playerScore;
+        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        endGame();
+    } else if (winner === "ptc") {
+        ++ compScore;
+        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`)
+        endGame();
     }else {
-        console.log('Somehow playerChoice "rock" is not equal to "rock" in line 74 ')
-        return console.log
+        console.log(`You both played ${comp}! Go again.`) // the tie condition
+        endGame();
     }
 }
 
+function endGame(){
+    if (compScore === 5 || playerScore === 5){
+        console.log('The game as been completed. let\'s see who won!');
+        if (compScore === 5){
+            console.log('The computer has won. Reload page to try your luck again.');
+        }else {
+            console.log('You beat the computer. Way to go! Reload page to try your luck again.');
+        }    
+    } else if (compScore <= 5 || playerScore <= 5) {
+            playRound();
+    } else {
+        console.log('The game is over, reload page to take another crack at the game.');
+    }
+}
 
-
-playerChoice();
-compChoice();
 playRound();
-
-
 </script>
