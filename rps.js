@@ -113,24 +113,23 @@ function roundScore() {
 }
 
 function endGame() {
-  if (compScore <= 4 && playerScore <= 4) {
+    if (compScore <= 4 && playerScore <= 4) {
     playRound();
-  } else {
-    checkWin();
-  }
+    } else {
+        if (compScore > 4) {
+          console.log("Computer Won. Reload page to try again.");
+          //alert('you lose.')
+        } else if (playerScore > 4) {
+          console.log(
+            "You beat the computer. Way to go! Reload page to try your luck again."
+          );
+          //alert('you win.')
+        }
+    }
 }
 
-function checkWin() {
-  if (compScore > 4) {
-    console.log("Computer Won. Reload page to try again.");
-    //alert('you lose.')
-  } else if (playerScore > 4) {
-    console.log(
-      "You beat the computer. Way to go! Reload page to try your luck again."
-    );
-    //alert('you win.')
-  }
-}
+
+
 
 function playerClick() {
   const buttons = document.querySelectorAll("button");
