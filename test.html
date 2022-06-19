@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="playerinput">
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    // var pet = function (name) {   // The outer function defines a variable called "name"
+    //     var getName = function () {
+    //         return name;             // The inner function has access to the "name" variable of the outer
+    //         //function
+    //     }
+    //     return getName;            // Return the inner function, thereby exposing it to outer scopes
+    // }
+    // myPet = pet('Vivie');
+
+    // myPet();                     // Returns "Vivie"
+
+
+
+    const buttons = document.querySelectorAll("button");
+
+    function playerClick() {
+        // // we use the .forEach method to iterate through each button
+        buttons.forEach((button) => {
+            // and for each one we add a 'click' listener
+            button.addEventListener("click", () => {
+                console.log(button.id);
+                return button.id;
+            });
+        });
+    };
+
+    function addSeven(number) {
+        return number + 7
+    }
+
+</script>
