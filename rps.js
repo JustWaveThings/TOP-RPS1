@@ -59,47 +59,45 @@ let round = 0;
 // computer choice function
 
 function compChoice() {
-  let handChoice = ["rock", "paper", "scissors"];
+  let handChoice = ["Rock", "Paper", "Scissors"];
   return handChoice[Math.floor(Math.random() * handChoice.length)];
 }
+
 function playerChoice() {
   // return prompt("what's your choice");
 }
 
 // determine winner or tie function / with point added to winner function
 
-function playRound(
-  playerSelection = playerChoice(),
-  computerSelection = compChoice()
-) {
+function playRound(playerSelection, computerSelection = compChoice()) {
   ++round;
   if (computerSelection === playerSelection) {
     winner = "tie"; // this doesn't really do anything. I just want it there.
     points();
   }
-  if (playerSelection === "rock") {
-    if (computerSelection === "scissors") {
+  if (playerSelection === "Rock") {
+    if (computerSelection === "Scissors") {
       winner = "ptp";
       points();
-    } else if (computerSelection === "paper");
+    } else if (computerSelection === "Paper");
     {
       winner = "ptc";
       points();
     }
-  } else if (playerSelection === "scissors") {
-    if (computerSelection === "paper") {
+  } else if (playerSelection === "Scissors") {
+    if (computerSelection === "Paper") {
       winner = "ptp";
       points();
-    } else if (computerSelection === "rock");
+    } else if (computerSelection === "Rock");
     {
       winner = "ptc";
       points();
     }
-  } else if (playerSelection === "paper") {
-    if (computerSelection === "rock") {
+  } else if (playerSelection === "Paper") {
+    if (computerSelection === "Rock") {
       winner = "ptp";
       points();
-    } else if (computerSelection === "scissors");
+    } else if (computerSelection === "Scissors");
     {
       winner = "ptc";
       points();
@@ -134,7 +132,7 @@ function roundScore() {
 
 function endGame() {
   if (compScore <= 4 && playerScore <= 4) {
-    playRound();
+    //);
   } else {
     checkWin();
   }
@@ -164,4 +162,4 @@ function playerClick() {
   });
 }
 playerClick();
-//playRound(compChoice(), playerClick());
+
