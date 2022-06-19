@@ -51,10 +51,7 @@ objectives
 // initalized global variables
 let compScore = 0;
 let playerScore = 0;
-let comp;
-let player;
-let winner;
-let round = 0;
+let roundA = 1;
 
 // computer choice function
 
@@ -64,83 +61,85 @@ function compChoice() {
 }
 
 
-
-// determine winner or tie function / with point added to winner function
-
 function playRound(playerSelection, computerSelection = compChoice()) {
-  ++round;
+ 
   if (computerSelection === playerSelection) {
-      console.log(`You both played ${comp}! Go again.`);
+      console.log(`You both played ${computerSelection}! Go again.`);
       roundScore();
   }
   if (playerSelection === "Rock") {
     if (computerSelection === "Scissors") {
         ++playerScore;
-        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        console.log(
+          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
+        );
         roundScore();
     } else if (computerSelection === "Paper") {
         ++compScore;
-        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        console.log(
+          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
+        );
         roundScore();
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Paper") {
         ++playerScore;
-        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        console.log(
+          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
+        );
         roundScore();
       } else if (computerSelection === "Rock") {
         ++compScore;
-        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        console.log(
+          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
+        );
         roundScore();
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
         ++playerScore;
-        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        console.log(
+          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
+        );
         roundScore();
     } else if (computerSelection === "Scissors"){
         ++compScore;
-        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        console.log(
+          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
+        );
         roundScore();
     }
   }
 }
 
-
-
-function roundScore() {
-  console.log(`At the end of round ${round}, the score is ${playerScore} for you, and ${compScore} for the computer.`);
+function roundScore(round = roundA, playerS = playerScore, compS = compScore) {
+    ++roundA;
+    console.log(`At the end of round ${round}, the score is ${playerS} for you, and ${compS} for the computer.`);
+    endGame();
 }
 
-function endGame() {
-    if (compScore <= 4 && playerScore <= 4) {
-    playRound();
+function endGame (playerS = playerScore, compS = compScore) {
+    if (compS <= 4 && playerS <= 4) {
+        playRound();
     } else {
-        if (compScore > 4) {
-          console.log("Computer Won. Reload page to try again.");
-          //alert('you lose.')
+        if (compS > 4) {
+            console.log("Computer Won. Reload page to try again.");
+            return ;
         } else {
-          console.log(
-            "You beat the computer. Way to go! Reload page to try your luck again."
-          );
-          //alert('you win.')
+            console.log("You beat the computer. Way to go! Reload page to try your luck again.");
+            return;
         }
     }
 }
 
-
-
-
 function playerClick() {
   const buttons = document.querySelectorAll("button");
-  // // we use the .forEach method to iterate through each button
   buttons.forEach((button) => {
-    // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
-      //console.log(button.id);
-      playRound(compChoice(), button.id);
-    });
+            playRound(compChoice(), button.id);
+        });
   });
 }
+
 playerClick();
 
