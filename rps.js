@@ -63,76 +63,58 @@ function compChoice() {
   return handChoice[Math.floor(Math.random() * handChoice.length)];
 }
 
-function playerChoice() {
-  // return prompt("what's your choice");
-}
+
 
 // determine winner or tie function / with point added to winner function
 
 function playRound(playerSelection, computerSelection = compChoice()) {
   ++round;
   if (computerSelection === playerSelection) {
-    winner = "tie"; // this doesn't really do anything. I just want it there.
-    points();
+      console.log(`You both played ${comp}! Go again.`);
+      roundScore();
   }
   if (playerSelection === "Rock") {
     if (computerSelection === "Scissors") {
-      winner = "ptp";
-      points();
-    } else if (computerSelection === "Paper");
-    {
-      winner = "ptc";
-      points();
+        ++playerScore;
+        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        roundScore();
+    } else if (computerSelection === "Paper") {
+        ++compScore;
+        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        roundScore();
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Paper") {
-      winner = "ptp";
-      points();
-    } else if (computerSelection === "Rock");
-    {
-      winner = "ptc";
-      points();
+        ++playerScore;
+        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        roundScore();
+      } else if (computerSelection === "Rock") {
+        ++compScore;
+        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        roundScore();
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
-      winner = "ptp";
-      points();
-    } else if (computerSelection === "Scissors");
-    {
-      winner = "ptc";
-      points();
+        ++playerScore;
+        console.log(`The point is yours! Your ${player} beat the computer's ${comp}.`)
+        roundScore();
+    } else if (computerSelection === "Scissors"){
+        ++compScore;
+        console.log(`The point goes to the computer. Their ${comp} beat your ${player}`);
+        roundScore();
     }
   }
 }
 
-function points(newwinner = winner) {
-  if (newwinner === "ptp") {
-    ++playerScore;
-    console.log(
-      `The point is yours! Your ${player} beat the computer's ${comp}.`
-    );
-    endGame();
-  } else if (newwinner === "ptc") {
-    ++compScore;
-    console.log(
-      `The point goes to the computer. Their ${comp} beat your ${player}`
-    );
-    endGame();
-  } else {
-    console.log(`You both played ${comp}! Go again.`); // the tie condition
-    endGame();
-  }
-}
+
 
 function roundScore() {
-  console.log(
-    `At the end of round ${round}, the score is ${playerScore} for you, and ${compScore} for the computer.`
-  );
+  console.log(`At the end of round ${round}, the score is ${playerScore} for you, and ${compScore} for the computer.`);
 }
 
 function endGame() {
   if (compScore <= 4 && playerScore <= 4) {
-    //);
+    playRound();
   } else {
     checkWin();
   }
