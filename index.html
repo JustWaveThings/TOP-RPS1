@@ -1,92 +1,24 @@
-<script>
-    
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="rps.js" defer></script>
+</head>
+
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <h2>Presented by JustWaveThings</h2>
+    <div id="playerinput">
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
+    </div>
+    <div id="container"></div>
 
 
-function computerPlay(){
+</body>
 
-    let handChoice = ["Rock", "Paper", "Scissors"] // array of possible choices
-    let rando = handChoice[Math.floor(Math.random()*handChoice.length)]; 
-    return rando.toString();
-}
-
-
-function playerSelection(){
-    let playerChoice = prompt("What are you throwing down? Rock, Paper, or Scissors? Type your answer in.");
-    let playerToLower = playerChoice.toLowerCase();
-    let firstChar = playerToLower.charAt(0);
-    let firstCharCap = firstChar.toUpperCase();
-    let fPlayerChoice = firstCharCap + playerToLower.slice(1);
-    return fPlayerChoice.toString();
-}
-
-
-let computerPlay2 = computerPlay();
-let playerSelection2 = playerSelection();
-
-function determineTie(){
- if (computerPlay2 === playerSelection2){
-    alert(`You both threw down ${computerPlay2} it's a Tie. Go again.`);
-    console.log("they tied") 
- } else {
-    displayDecisions();    
-    alert("Not a tie, let's see who won!")
-    console.log("Not a tie. Let's see who won.") 
-    determineWin();
- }
- return alert;
-}
-
-function displayDecisions(){
- alert(`You chose ${playerSelection2}, and the computer chose ${computerPlay2}.`)
-}
-
-function determineWin(){
-    // rock
-    if (playerSelection2 === 'Rock'){
-        if (computerPlay2 === 'Scissors') {
-            alert("Rock Crushes Scissors, You Win!");
-            console.log("Player Wins");
-           
-        } else {
-            alert("Paper Covers Rock, You Lose!");
-            console.log("Player Loses.");
-           
-        }
-    // scissors    
-    }else if (playerSelection2 === 'Scissors') {
-        if (computerPlay2 === 'Paper') {
-            alert("Scissors Shreds Paper, You Win!");
-            console.log("Player Wins.");
-            
-        } else {
-            alert("Rock Crushes Scissors, You Lose!");
-            console.log("Player Loses.");
-            
-        }
-    // paper
-    }else if (playerSelection2 === 'Paper'){
-        if (computerPlay2 === 'Rock') {
-            alert("Paper Covers Rock, You Win!");
-            console.log("Player Wins.");
-            
-        } else {
-            alert("Scissors Shreds Paper, You Lose!");
-            console.log("Player Loses.");
-           
-        }
-    // something else
-    }else {
-        alert("Round Forfeit. Make sure you spell your word correctly next time.");
-        console.log("Player did not enter a valid word.");
-        
-    }
-       
-   
-}
-
-</script>
-
-
-
-
-
+</html>
