@@ -80,15 +80,14 @@ buttons.forEach((button) => {
     playRound(button.id, compChoice());
     removeListeners();
   });
-});
+});//
 
-function removeListeners(game = endGame()) {
-  if (game === 'end') {
+https: function removeListeners(game = endGame()) {
+  if (game === "end") {
     const elem = document.getElementById("playerinput");
     elem.replaceWith(elem.cloneNode(true));
   }
 }
-
 
 
 
