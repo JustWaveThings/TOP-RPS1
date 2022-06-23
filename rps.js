@@ -13,70 +13,60 @@ function compChoice() {
   return handChoice[Math.floor(Math.random() * handChoice.length)];
 }
 
+// 
 
 function playRound(playerSelection, computerSelection = compChoice()) {
  
   if (computerSelection === playerSelection) {
-      console.log(`You both played ${computerSelection}! Go again.`);
+      roundResult.textContent = `You both played ${computerSelection}! Go again.`;
       roundScore();
   }
   if (playerSelection === "Rock") {
     if (computerSelection === "Scissors") {
         ++playerScore;
-        console.log(
-          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
-        );
+        roundResult.textContent = `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}. `;
         roundScore();
     } else if (computerSelection === "Paper") {
         ++compScore;
-        console.log(
-          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
-        );
+        roundResult.textContent = `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`;
         roundScore();
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Paper") {
         ++playerScore;
-        console.log(
-          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
-        );
+        roundResult.textContent = `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`;
         roundScore();
       } else if (computerSelection === "Rock") {
         ++compScore;
-        console.log(
-          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
-        );
+        roundResult.textContent = `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`;
         roundScore();
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
         ++playerScore;
-        console.log(
-          `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`
-        );
+        roundResult.textContent = `The point is yours! Your ${playerSelection} beat the computer's ${computerSelection}.`;
         roundScore();
     } else if (computerSelection === "Scissors"){
         ++compScore;
-        console.log(
-          `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`
-        );
+        roundResult.textContent = `The point goes to the computer. Their ${computerSelection} beat your ${playerSelection}`;
         roundScore();
     }
   }
 }
 
 function roundScore(round = roundA, playerS = playerScore, compS = compScore) {
-    ++roundA;
-    console.log(`At the end of round ${round}, the score is ${playerS} for you, and ${compS} for the computer.`);
-    endGame();
+  ++roundA;
+  let commentary = `At the end of round ${round}, the score is ${playerS} for you, and ${compS} for the computer.`;
+  endGame();
+  displayRound.textContent = `SCOREBOARD: ${commentary}`;
 }
 
 function endGame (playerS = playerScore, compS = compScore) {
   if (compS > 4) {
-    console.log("Computer Won. Reload page to try again.");
+    displayRound.textContent = "Computer Won. Reload page to try again.";
     return "end";
   } else if (playerS > 4) {
-    console.log("You beat the computer. Way to go! Reload page to try your luck again.");
+    displayRound.textContent = "You beat the computer. Way to go! Reload page to try your luck again.";
     return "end";
   }
 }
@@ -94,8 +84,21 @@ buttons.forEach((button) => {
 
 function removeListeners(game = endGame()) {
   if (game === 'end') {
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!the true condition of removeListeners ran");
     const elem = document.getElementById("playerinput");
     elem.replaceWith(elem.cloneNode(true));
   }
 }
+
+
+
+
+const container = document.querySelector('#container');
+
+const roundResult = document.createElement("p");
+roundResult.classList.add("roundResult");
+container.appendChild(roundResult); 
+
+const displayRound = document.createElement('h3');
+displayRound.classList.add('displayRound');
+container.appendChild(displayRound); 
+
